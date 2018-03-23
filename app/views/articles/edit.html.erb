@@ -1,0 +1,26 @@
+<h1>UPDATE ELEMENT</h1>
+
+<%= form_for :article, url: article_path(@article), method: :patch do |f|%>
+  <% if @article.errors.any?%>
+    <p> 
+      <%= pluralize(@article.errors.count, 'error')%> you got.
+      <% @article.errors.full_messages.each do |mns|%>
+        <%= mns%>
+      <%end%>
+    </p>
+  <%end%>
+  <p>
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+  </p>
+  <p>
+    <%= f.label :text%>
+    <%= f.text_area :text%>
+  </p>
+  <p>
+    <%= f.submit%>
+  
+  </p>
+<%end%>
+
+<%= link_to 'Go back', articles_path%>
